@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 // Enable CORS for frontend local development
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173','https://interior-ten-ebon.vercel.app/'],
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173','https://interior-three-zeta.vercel.app/'],
   methods: ['GET', 'POST'],
   credentials: true
 }));
