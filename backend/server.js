@@ -58,14 +58,25 @@ app.post('/api/consultation', async (req, res) => {
 
   // Set up Nodemailer Transporter
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT || '465'),
-    secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
+  secure: process.env.SMTP_SECURE === "true",
+  connectionTimeout: 30000,
+  greetingTimeout: 30000,
+  socketTimeout: 30000,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
+
+try {
+  await transporter.verify();
+  console.log("✅ SMTP connection successful");
+} catch (err) {
+  console.error("SMTP Verify Error:", err);
+  throw err;
+}
 
   // Prepare HTML Email Template
   const emailHtml = `
