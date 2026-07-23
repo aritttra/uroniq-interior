@@ -386,7 +386,7 @@ app.post('/api/consultation', async (req, res) => {
   if (process.env.RESEND_API_KEY) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const recipient = process.env.RECEIVER_EMAIL || 'aritrakundu.in@gmail.com';
+      const recipient = process.env.RECEIVER_EMAIL || 'uroniqinteriors@gmail.com';
       
       await Promise.all([
         resend.emails.send({
@@ -418,7 +418,7 @@ app.post('/api/consultation', async (req, res) => {
   // Fallback to Nodemailer SMTP
   const adminMailOptions = {
     from: `"Uroniq Interiors" <${process.env.SMTP_USER}>`,
-    to: process.env.RECEIVER_EMAIL || 'aritrakundu.in@gmail.com',
+    to: process.env.RECEIVER_EMAIL || 'uroniqinteriors@gmail.com',
     subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
     html: emailHtml,
     replyTo: email
