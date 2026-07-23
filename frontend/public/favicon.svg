@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8C547;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="8" fill="#0a0a0a"/>
+  <!-- U -->
+  <path d="M 10 10 L 10 30 Q 10 40 24 40 Q 38 40 38 30 L 38 10 L 33 10 L 33 29 Q 33 36 24 36 Q 15 36 15 29 L 15 10 Z" 
+        fill="url(#fg)" />
+  <!-- I decorative lines -->
+  <line x1="23" y1="12" x2="23" y2="34" stroke="url(#fg)" stroke-width="1" opacity="0.5"/>
+  <line x1="25" y1="12" x2="25" y2="34" stroke="url(#fg)" stroke-width="1" opacity="0.5"/>
+  <!-- Serifs on U -->
+  <rect x="7" y="8" width="12" height="3" fill="url(#fg)" rx="0.5"/>
+  <rect x="30" y="8" width="12" height="3" fill="url(#fg)" rx="0.5"/>
+</svg>

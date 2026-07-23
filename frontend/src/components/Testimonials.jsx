@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Sarah Jenkins', role: 'Homeowner', review: 'Nuvo completely transformed our living space. Their attention to detail and ability to capture our vision was extraordinary. Highly recommended for luxury designs.', rating: 5 },
-  { name: 'Michael Chen', role: 'CEO, TechFlow', review: 'The office redesign by Nuvo boosted our team morale and productivity. They perfectly balanced modern aesthetics with functional workspaces.', rating: 5 },
-  { name: 'Elena Rodriguez', role: 'Restaurant Owner', review: 'Our customers constantly compliment the interior. Nuvo created an atmosphere that is both elegant and welcoming. True professionals.', rating: 5 }
+  { name: 'Sarah Jenkins', role: 'Homeowner', review: 'Uroniq completely transformed our living space. Their attention to detail and ability to capture our vision was extraordinary. Highly recommended for luxury designs.', rating: 5 },
+  { name: 'Michael Chen', role: 'CEO, TechFlow', review: 'The office redesign by Uroniq boosted our team morale and productivity. They perfectly balanced modern aesthetics with functional workspaces.', rating: 5 },
+  { name: 'Elena Rodriguez', role: 'Restaurant Owner', review: 'Our customers constantly compliment the interior. Uroniq created an atmosphere that is both elegant and welcoming. True professionals.', rating: 5 }
 ];
 
 const Testimonials = () => {

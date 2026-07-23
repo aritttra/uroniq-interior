@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import WhyChooseUs from './components/WhyChooseUs';
 import Services from './components/Services';
+import Collections from './components/Collections';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -16,6 +17,7 @@ import ServiceDetailModal from './components/ServiceDetailModal';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
+  const [collectionNav, setCollectionNav] = useState(null);
 
   useEffect(() => {
     if (isModalOpen || selectedService) {
@@ -25,15 +27,21 @@ function App() {
     }
   }, [isModalOpen, selectedService]);
 
+  const handleNavigateCollection = (nav) => {
+    // Use a new object each time so useEffect always triggers even for the same category
+    setCollectionNav({ ...nav, _ts: Date.now() });
+  };
+
   return (
     <>
-      <Navbar onOpenModal={() => setIsModalOpen(true)} onSelectService={setSelectedService} />
+      <Navbar onOpenModal={() => setIsModalOpen(true)} onNavigateCollection={handleNavigateCollection} />
       <main>
         <Hero onOpenModal={() => setIsModalOpen(true)} />
         <About />
         <WhyChooseUs />
         <Services onOpenModal={() => setIsModalOpen(true)} />
         <Process />
+        <Collections onOpenModal={() => setIsModalOpen(true)} onSelectService={setSelectedService} externalNav={collectionNav} />
 
         <Testimonials />
         <Contact onOpenModal={() => setIsModalOpen(true)} />

@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="heading-sm" style={{ marginBottom: '1.5rem' }}>The Nuvo Difference</h3>
+            <h3 className="heading-sm" style={{ marginBottom: '1.5rem' }}>The Uroniq Difference</h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {benefits.map((benefit, idx) => (
                 <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.1rem', color: 'var(--color-gray-200)' }}>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 350" width="300" height="350">
+  <defs>
+    <!-- Gold gradient for the monogram -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#C5A028;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8C547;stop-opacity:1" />
+    </linearGradient>
+    <!-- Darker gold for depth -->
+    <linearGradient id="goldGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A67C00;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B6914;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C5A028;stop-opacity:1" />
+    </linearGradient>
+    <!-- Light gold highlight -->
+    <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0D060;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- U letter - stylized with serif elegance -->
+  <g transform="translate(60, 20)">
+    <!-- U left stroke -->
+    <path d="M 30 0 L 30 120 Q 30 170 90 170 Q 150 170 150 120 L 150 0 L 135 0 L 135 118 Q 135 158 90 158 Q 45 158 45 118 L 45 0 Z" 
+          fill="url(#goldGrad)" />
+    <!-- U decorative serifs -->
+    <rect x="18" y="0" width="40" height="8" fill="url(#goldGrad)" rx="1"/>
+    <rect x="125" y="0" width="40" height="8" fill="url(#goldGrad)" rx="1"/>
+  </g>
+
+  <!-- I letter - overlapping with U, creating monogram feel -->
+  <g transform="translate(130, 30)">
+    <!-- I vertical stroke -->
+    <rect x="32" y="15" width="16" height="130" fill="url(#goldGrad)" rx="1"/>
+    <!-- I top serif -->
+    <rect x="15" y="8" width="50" height="8" fill="url(#goldGrad)" rx="1"/>
+    <!-- I bottom serif -->
+    <rect x="15" y="144" width="50" height="8" fill="url(#goldGrad)" rx="1"/>
+    <!-- Decorative vertical lines (harp-like strings) -->
+    <line x1="26" y1="20" x2="26" y2="140" stroke="url(#goldGradDark)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="54" y1="20" x2="54" y2="140" stroke="url(#goldGradDark)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="22" y1="25" x2="22" y2="135" stroke="url(#goldGradDark)" stroke-width="1" opacity="0.4"/>
+    <line x1="58" y1="25" x2="58" y2="135" stroke="url(#goldGradDark)" stroke-width="1" opacity="0.4"/>
+  </g>
+
+  <!-- Decorative Q-like swoosh from the logo -->
+  <path d="M 195 145 Q 220 175 200 195 Q 175 215 140 205 Q 110 198 100 185" 
+        fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- URONIQ text -->
+  <text x="150" y="250" text-anchor="middle" 
+        font-family="'Cormorant Garamond', 'Playfair Display', 'Georgia', serif" 
+        font-size="42" font-weight="600" letter-spacing="12" 
+        fill="url(#goldGrad)">URONIQ</text>
+
+  <!-- Decorative line left -->
+  <line x1="30" y1="272" x2="100" y2="272" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  <!-- INTERIORS text -->
+  <text x="150" y="278" text-anchor="middle" 
+        font-family="'Cormorant Garamond', 'Playfair Display', 'Georgia', serif" 
+        font-size="18" font-weight="400" letter-spacing="10" 
+        fill="url(#goldGrad)">INTERIORS</text>
+  <!-- Decorative line right -->
+  <line x1="200" y1="272" x2="270" y2="272" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- Small decorative ornament -->
+  <g transform="translate(150, 295)">
+    <line x1="-30" y1="0" x2="-8" y2="0" stroke="url(#goldGrad)" stroke-width="1"/>
+    <circle cx="0" cy="0" r="3" fill="url(#goldGrad)"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="url(#goldGrad)" stroke-width="0.8"/>
+    <line x1="8" y1="0" x2="30" y2="0" stroke="url(#goldGrad)" stroke-width="1"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="150" y="320" text-anchor="middle" 
+        font-family="'Cormorant Garamond', 'Playfair Display', 'Georgia', serif" 
+        font-size="13" font-weight="400" font-style="italic" letter-spacing="2" 
+        fill="url(#goldGrad)" opacity="0.85">Curating Timeless Luxury Interiors</text>
+</svg>

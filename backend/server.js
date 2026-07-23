@@ -20,7 +20,7 @@ app.use(express.json());
 
 // Basic health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Nüvo Backend is running' });
+  res.json({ status: 'OK', message: 'Uroniq Backend is running' });
 });
 
 // Endpoint to handle consultation submissions

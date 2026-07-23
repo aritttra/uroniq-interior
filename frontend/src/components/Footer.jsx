@@ -7,8 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-4 gap-8" style={{ marginBottom: '4rem' }}>
           <div style={{ gridColumn: 'span 2' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
-              <div style={{ width: '12px', height: '12px', backgroundColor: 'var(--color-gold)', borderRadius: '50%' }}></div>
-              <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', fontWeight: 600 }}>Nüvo</span>
+              <img src="/logo.svg" alt="Uroniq Interiors" style={{ height: '50px', width: 'auto' }} />
             </div>
             <p style={{ color: 'var(--color-gray-400)', maxWidth: '400px' }}>
               We blend creativity, functionality, and sophistication to create interiors that reflect your personality and elevate your lifestyle.
@@ -37,7 +36,7 @@ const Footer = () => {
         </div>
 
         <div style={{ textAlign: 'center', color: 'var(--color-gray-400)', fontSize: '0.9rem', borderTop: '1px solid var(--color-gray-800)', paddingTop: '2rem' }}>
-          &copy; {new Date().getFullYear()} Nüvo Interior Design. All rights reserved.
+          &copy; {new Date().getFullYear()} Uroniq Interiors. All rights reserved.
         </div>
       </div>
     </footer>

@@ -31,7 +31,7 @@ const Contact = ({ onOpenModal }) => {
               </div>
               <div>
                 <Mail className="text-gold" size={24} style={{ margin: '0 auto 1rem' }} />
-                <div>hello@nuvodesign.com</div>
+                <div>hello@uroniqinteriors.com</div>
               </div>
               <div>
                 <MapPin className="text-gold" size={24} style={{ margin: '0 auto 1rem' }} />
