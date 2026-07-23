@@ -182,7 +182,7 @@ app.post('/api/consultation', async (req, res) => {
     <body>
       <div class="container">
         <div class="header">
-          <h1>Nüvo Consultation Request</h1>
+          <h1>Uroniq Consultation Request</h1>
         </div>
         <div class="content">
           <div class="ref-box">
