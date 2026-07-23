@@ -68,16 +68,20 @@ const ConsultationModal = ({ onClose }) => {
       setIsSubmitting(true);
       setErrors({});
 
-      try {
-        const API_URL = import.meta.env.VITE_API_URL;
+     try {
+  const API_URL = import.meta.env.VITE_API_URL;
 
-const response = await fetch(${API_URL}/api/consultation, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(formData),
-});
+  const response = await fetch(`${API_URL}/api/consultation`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+} catch (error) {
+  console.error(error);
+}
 
         const data = await response.json();
 
