@@ -228,7 +228,7 @@ app.post('/api/consultation', async (req, res) => {
 
           <div class="section-title">Client Vision</div>
           <div class="desc-text">
-            "${description.replace(/\n/g, '<br>')}"
+            "${(description || "").replace(/\n/g, "<br>")}"
           </div>
         </div>
         <div class="footer">
