@@ -7,6 +7,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownTimeout = useRef(null);
 
   useEffect(() => {
@@ -32,12 +33,14 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
 
   const handleCategoryClick = (cat) => {
     setIsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
     setHoveredCategory(null);
     onNavigateCollection({ categoryId: cat.id });
   };
 
   const handleSubcategoryClick = (cat, sub) => {
     setIsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
     setHoveredCategory(null);
     onNavigateCollection({ categoryId: cat.id, subcategoryName: sub.name });
   };
@@ -46,20 +49,21 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
     <header style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       transition: 'all 0.3s ease',
-      backgroundColor: scrolled ? 'rgba(5, 5, 5, 0.95)' : 'transparent',
+      backgroundColor: scrolled || isMobileMenuOpen ? 'rgba(5, 5, 5, 0.98)' : 'transparent',
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
-      padding: scrolled ? '1rem 0' : '1.5rem 0'
+      padding: scrolled ? '0.8rem 0' : '1.2rem 0'
     }}>
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between" style={{ position: 'relative' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <img src="/logo.svg" alt="Uroniq Interiors" style={{ height: '70px', width: 'auto' }} />
+          <img src="/logo.svg" alt="Uroniq Interiors" style={{ height: '55px', width: 'auto' }} />
         </div>
         
-        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          <a href="#home" className="nav-link-hover" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color='var(--color-gold)'} onMouseOut={e => e.target.style.color='var(--color-white)'}>Home</a>
-          <a href="#about" className="nav-link-hover" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color='var(--color-gold)'} onMouseOut={e => e.target.style.color='var(--color-white)'}>About</a>
-          <a href="#services" className="nav-link-hover" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color='var(--color-gold)'} onMouseOut={e => e.target.style.color='var(--color-white)'}>Services</a>
+        {/* Desktop Nav */}
+        <nav className="desktop-nav" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+          <a href="#home" className="nav-link-hover" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>Home</a>
+          <a href="#about" className="nav-link-hover" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>About</a>
+          <a href="#services" className="nav-link-hover" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>Services</a>
           
           {/* Collections Mega Dropdown */}
           <div 
@@ -167,12 +171,46 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
             </AnimatePresence>
           </div>
 
-          <a href="#testimonials" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color='var(--color-gold)'} onMouseOut={e => e.target.style.color='var(--color-white)'}>Testimonials</a>
-          <a href="#contact" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }} onMouseOver={e => e.target.style.color='var(--color-gold)'} onMouseOut={e => e.target.style.color='var(--color-white)'}>Contact</a>
+          <a href="#testimonials" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>Testimonials</a>
+          <a href="#contact" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>Contact</a>
         </nav>
 
-        <button className="btn btn-primary" onClick={onOpenModal}>Make a Schedule</button>
+        <div className="desktop-nav">
+          <button className="btn btn-primary" onClick={onOpenModal}>Make a Schedule</button>
+        </div>
+
+        {/* Mobile Hamburger Toggle Button */}
+        <button 
+          className="mobile-toggle-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+          style={{
+            display: 'none', background: 'none', border: 'none', color: '#fff', fontSize: '1.5rem', cursor: 'pointer'
+          }}
+        >
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </button>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-drawer" style={{
+          backgroundColor: 'rgba(10, 10, 10, 0.98)',
+          borderBottom: '1px solid var(--color-gray-800)',
+          padding: '1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem'
+        }}>
+          <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <a href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
+          <a href="#collections" onClick={() => setIsMobileMenuOpen(false)}>Collections</a>
+          <a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+          <button className="btn btn-primary" style={{ marginTop: '0.5rem', width: '100%' }} onClick={() => { setIsMobileMenuOpen(false); onOpenModal(); }}>Make a Schedule</button>
+        </div>
+      )}
 
       {/* Mega Dropdown Styles */}
       <style dangerouslySetInnerHTML={{ __html: `
@@ -395,6 +433,12 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
         }
 
         @media (max-width: 768px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .mobile-toggle-btn {
+            display: block !important;
+          }
           .navbar-mega-dropdown {
             width: calc(100vw - 2rem);
             left: 0;

@@ -258,29 +258,32 @@ const ConsultationModal = ({ onClose }) => {
   ];
 
   return (
-    <div style={{
+    <div className="modal-container" style={{
       position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      backgroundColor: 'rgba(0, 0, 0, 0.85)',
       backdropFilter: 'blur(8px)',
       zIndex: 1000,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: '2rem'
+      padding: '1rem'
     }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="modal-card-content"
         style={{
           width: '100%', maxWidth: '800px', maxHeight: '90vh',
           backgroundColor: 'rgba(17, 17, 17, 0.95)',
           border: '1px solid var(--color-gray-800)',
           position: 'relative',
-          display: 'flex', flexDirection: 'column'
+          display: 'flex', flexDirection: 'column',
+          borderRadius: '8px',
+          overflow: 'hidden'
         }}
       >
         <button onClick={onClose} style={{
-          position: 'absolute', top: '1.5rem', right: '1.5rem',
+          position: 'absolute', top: '1rem', right: '1rem',
           background: 'none', border: 'none', color: 'var(--color-gray-400)',
           cursor: 'pointer', zIndex: 10
         }}>
@@ -288,15 +291,24 @@ const ConsultationModal = ({ onClose }) => {
         </button>
 
         {isSuccess ? (
-          <div style={{ padding: '4rem', textAlign: 'center' }}>
-            <CheckCircle2 size={80} className="text-gold" style={{ margin: '0 auto 2rem' }} />
+          <div style={{ padding: '2.5rem 1.5rem', textAlign: 'center', margin: 'auto' }}>
+            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', damping: 15 }}>
+              <CheckCircle2 size={64} className="text-gold" style={{ margin: '0 auto 1.5rem' }} />
+            </motion.div>
             <h2 className="heading-md" style={{ marginBottom: '1rem' }}>Thank You!</h2>
-            <p style={{ color: 'var(--color-gray-200)', fontSize: '1.1rem', marginBottom: '2rem', maxWidth: '400px', margin: '0 auto 2rem' }}>
+            <p style={{ color: 'var(--color-gray-200)', marginBottom: '2rem', maxWidth: '500px' }}>
               We've received your project requirements. Our design team will review your submission and contact you shortly.
             </p>
-            <div style={{ padding: '1.5rem', border: '1px dashed var(--color-gold)', display: 'inline-block', marginBottom: '3rem' }}>
-              <div style={{ color: 'var(--color-gray-400)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Reference Number</div>
-              <div className="text-gold" style={{ fontSize: '1.5rem', fontWeight: 600, letterSpacing: '0.1em' }}>{refNumber}</div>
+            <div style={{
+              backgroundColor: 'rgba(212, 175, 55, 0.05)',
+              border: '1px dashed var(--color-gold)',
+              padding: '1rem',
+              borderRadius: '4px',
+              maxWidth: '300px',
+              margin: '0 auto 2rem'
+            }}>
+              <div style={{ fontSize: '0.8rem', color: 'var(--color-gray-400)', marginBottom: '0.25rem' }}>Reference Number</div>
+              <div style={{ fontSize: '1.25rem', color: 'var(--color-gold)', fontWeight: 600, letterSpacing: '0.05em' }}>{refNumber}</div>
             </div>
             <div>
               <button className="btn btn-primary" onClick={onClose}>Return to Website</button>
@@ -304,18 +316,18 @@ const ConsultationModal = ({ onClose }) => {
           </div>
         ) : (
           <>
-            <div style={{ padding: '2rem 3rem', borderBottom: '1px solid var(--color-gray-800)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <span style={{ color: 'var(--color-gold)', fontWeight: 600 }}>Step {step} of 7</span>
-                <span style={{ color: 'var(--color-gray-400)', fontSize: '0.9rem' }}>{Math.round((step / 7) * 100)}% Completed</span>
+            <div className="modal-header-block" style={{ padding: '1.5rem 2rem', borderBottom: '1px solid var(--color-gray-800)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                <span style={{ color: 'var(--color-gold)', fontWeight: 600, fontSize: '0.9rem' }}>Step {step} of 7</span>
+                <span style={{ color: 'var(--color-gray-400)', fontSize: '0.85rem' }}>{Math.round((step / 7) * 100)}% Completed</span>
               </div>
               <div style={{ width: '100%', height: '4px', backgroundColor: 'var(--color-gray-800)', borderRadius: '2px', overflow: 'hidden' }}>
                 <div style={{ width: `${(step / 7) * 100}%`, height: '100%', backgroundColor: 'var(--color-gold)', transition: 'width 0.3s' }}></div>
               </div>
             </div>
 
-            <div style={{ padding: '3rem', flex: 1, overflowY: 'auto' }}>
-              <h2 className="heading-sm" style={{ marginBottom: '2rem' }}>{stepTitles[step - 1]}</h2>
+            <div className="modal-body-block" style={{ padding: '2rem', flex: 1, overflowY: 'auto' }}>
+              <h2 className="heading-sm" style={{ marginBottom: '1.5rem' }}>{stepTitles[step - 1]}</h2>
               <AnimatePresence mode="wait">
                 <motion.div
                   key={step}
@@ -330,24 +342,24 @@ const ConsultationModal = ({ onClose }) => {
             </div>
 
             {errors.submit && (
-              <div style={{ color: '#ef4444', fontSize: '0.9rem', textAlign: 'center', padding: '0 3rem 1.5rem', fontFamily: 'var(--font-sans)' }}>
+              <div style={{ color: '#ef4444', fontSize: '0.85rem', textAlign: 'center', padding: '0 1.5rem 1rem', fontFamily: 'var(--font-sans)' }}>
                 {errors.submit}
               </div>
             )}
 
-            <div style={{ padding: '2rem 3rem', borderTop: '1px solid var(--color-gray-800)', display: 'flex', justifyContent: 'space-between' }}>
+            <div className="modal-footer-block" style={{ padding: '1.25rem 2rem', borderTop: '1px solid var(--color-gray-800)', display: 'flex', justifyContent: 'space-between' }}>
               {step > 1 ? (
-                <button className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={handlePrev}>
+                <button className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.25rem' }} onClick={handlePrev}>
                   <ChevronLeft size={18} /> Previous
                 </button>
               ) : <div></div>}
 
               {step < 7 ? (
-                <button className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={handleNext}>
+                <button className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.25rem' }} onClick={handleNext}>
                   Next <ChevronRight size={18} />
                 </button>
               ) : (
-                <button className="btn btn-primary" onClick={handleSubmit} disabled={isSubmitting}>
+                <button className="btn btn-primary" style={{ padding: '0.75rem 1.25rem' }} onClick={handleSubmit} disabled={isSubmitting}>
                   {isSubmitting ? 'Submitting...' : 'Request Consultation'}
                 </button>
               )}
@@ -355,6 +367,13 @@ const ConsultationModal = ({ onClose }) => {
           </>
         )}
       </motion.div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (max-width: 640px) {
+          .modal-header-block { padding: 1.25rem 1.25rem !important; }
+          .modal-body-block { padding: 1.25rem !important; }
+          .modal-footer-block { padding: 1rem 1.25rem !important; }
+        }
+      ` }} />
     </div>
   );
 };

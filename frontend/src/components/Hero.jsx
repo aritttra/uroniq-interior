@@ -37,10 +37,10 @@ const Hero = ({ onOpenModal }) => {
             Where Every Space <br />
             <span className="text-gold">Becomes a Masterpiece</span>
           </h1>
-          <p style={{ fontSize: '1.125rem', color: 'var(--color-gray-200)', marginBottom: '3rem', maxWidth: '600px' }}>
+          <p style={{ fontSize: '1rem', color: 'var(--color-gray-200)', marginBottom: '2.5rem', maxWidth: '600px', lineHeight: '1.6' }}>
             We blend creativity, functionality, and sophistication to create interiors that reflect your personality and elevate your lifestyle.
           </p>
-          <div className="flex items-center gap-4">
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button className="btn btn-primary" onClick={onOpenModal}>Make a Schedule</button>
             <a href="#about" className="btn btn-outline">Learn More</a>
           </div>

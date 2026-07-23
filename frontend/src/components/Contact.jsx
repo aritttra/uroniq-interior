@@ -27,15 +27,15 @@ const Contact = ({ onOpenModal }) => {
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <Phone className="text-gold" size={24} style={{ margin: '0 auto 1rem' }} />
-                <div>+1 (234) 567-8900</div>
+                <div><a href="tel:+918274974949" style={{ color: 'inherit' }}>+91 8274974949</a></div>
               </div>
               <div>
                 <Mail className="text-gold" size={24} style={{ margin: '0 auto 1rem' }} />
-                <div>hello@uroniqinteriors.com</div>
+                <div><a href="mailto:uroniqinteriors@gmail.com" style={{ color: 'inherit' }}>uroniqinteriors@gmail.com</a></div>
               </div>
               <div>
                 <MapPin className="text-gold" size={24} style={{ margin: '0 auto 1rem' }} />
-                <div>123 Luxury Avenue, NY</div>
+                <div>56, Girls School Road, New Barrackpore, Kolkata - 700131</div>
               </div>
             </div>
           </motion.div>
