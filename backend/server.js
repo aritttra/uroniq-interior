@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import dotenv from 'dotenv';
 
 // Load environment variables
@@ -381,7 +382,40 @@ app.post('/api/consultation', async (req, res) => {
     </html>
   `;
 
-  // Define email options
+  // Check if Resend API key is provided
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY);
+      const recipient = process.env.RECEIVER_EMAIL || 'aritrakundu.in@gmail.com';
+      
+      await Promise.all([
+        resend.emails.send({
+          from: 'Nüvo Interiors <onboarding@resend.dev>',
+          to: recipient,
+          subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
+          html: emailHtml,
+          reply_to: email
+        }),
+        resend.emails.send({
+          from: 'Nüvo Interiors <onboarding@resend.dev>',
+          to: email,
+          subject: `Thank you for reaching out to Nüvo - Ref: ${refNumber}`,
+          html: clientEmailHtml
+        })
+      ]);
+
+      console.log(`[SUCCESS] Resend emails dispatched for reference ${refNumber}`);
+      return res.status(200).json({
+        success: true,
+        refNumber,
+        message: 'Consultation request sent successfully via Resend.'
+      });
+    } catch (resendError) {
+      console.error(`[ERROR] Resend API failed:`, resendError);
+    }
+  }
+
+  // Fallback to Nodemailer SMTP
   const adminMailOptions = {
     from: `"Nüvo Interiors" <${process.env.SMTP_USER}>`,
     to: process.env.RECEIVER_EMAIL || 'aritrakundu.in@gmail.com',
@@ -410,7 +444,6 @@ app.post('/api/consultation', async (req, res) => {
     });
   } catch (error) {
     console.error(`[ERROR] Failed to send email via SMTP:`, error);
-    // Even if SMTP times out or fails, complete the submission for the user and log lead details
     res.status(200).json({
       success: true,
       refNumber,
