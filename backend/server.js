@@ -388,23 +388,29 @@ app.post('/api/consultation', async (req, res) => {
       const resend = new Resend(process.env.RESEND_API_KEY);
       const recipient = process.env.RECEIVER_EMAIL || 'uroniqinteriors@gmail.com';
       
-      await Promise.all([
-        resend.emails.send({
-          from: 'Uroniq Interiors <onboarding@resend.dev>',
-          to: recipient,
-          subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
-          html: emailHtml,
-          reply_to: email
-        }),
-        resend.emails.send({
+      const adminRes = await resend.emails.send({
+        from: 'Uroniq Interiors <onboarding@resend.dev>',
+        to: recipient,
+        subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
+        html: emailHtml,
+        reply_to: email
+      });
+
+      console.log(`[RESEND ADMIN RESULT]:`, adminRes);
+
+      try {
+        const clientRes = await resend.emails.send({
           from: 'Uroniq Interiors <onboarding@resend.dev>',
           to: email,
           subject: `Thank you for reaching out to Uroniq Interiors - Ref: ${refNumber}`,
           html: clientEmailHtml
-        })
-      ]);
+        });
+        console.log(`[RESEND CLIENT RESULT]:`, clientRes);
+      } catch (cErr) {
+        console.warn(`[WARNING] Resend client confirmation email skipped (testing domain restriction):`, cErr.message);
+      }
 
-      console.log(`[SUCCESS] Resend emails dispatched for reference ${refNumber}`);
+      console.log(`[SUCCESS] Consultation request processed for reference ${refNumber}`);
       return res.status(200).json({
         success: true,
         refNumber,
