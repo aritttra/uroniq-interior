@@ -57,13 +57,18 @@ app.post('/api/consultation', async (req, res) => {
   }
 
   // Set up Nodemailer Transporter with connection timeouts
+  const port = parseInt(process.env.SMTP_PORT || "465");
+  const isSecure = process.env.SMTP_SECURE !== undefined 
+    ? process.env.SMTP_SECURE === "true" 
+    : port === 465;
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.gmail.com",
-    port: parseInt(process.env.SMTP_PORT || "587"),
-    secure: process.env.SMTP_SECURE === "true", // true for 465, false for 587
-    connectionTimeout: 10000, // 10 seconds
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
+    port: port,
+    secure: isSecure,
+    connectionTimeout: 15000, // 15 seconds
+    greetingTimeout: 15000,
+    socketTimeout: 15000,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
