@@ -64,41 +64,41 @@ const ConsultationModal = ({ onClose }) => {
   };
 
   const handleSubmit = async () => {
-    if (validateStep()) {
-      setIsSubmitting(true);
-      setErrors({});
+  if (!validateStep()) return;
 
-     try {
-  const API_URL = import.meta.env.VITE_API_URL;
+  setIsSubmitting(true);
+  setErrors({});
 
-  const response = await fetch(`${API_URL}/api/consultation`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData),
-  });
+  try {
+    const API_URL = import.meta.env.VITE_API_URL;
 
-} catch (error) {
-  console.error(error);
-}
+    const response = await fetch(`${API_URL}/api/consultation`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-        const data = await response.json();
+    const data = await response.json();
 
-        if (response.ok && data.success) {
-          setRefNumber(data.refNumber);
-          setIsSuccess(true);
-        } else {
-          setErrors({ submit: data.message || 'Failed to submit consultation request. Please try again.' });
-        }
-      } catch (err) {
-        console.error('Error submitting consultation request:', err);
-        setErrors({ submit: 'Could not connect to the backend server. Please make sure the backend is running.' });
-      } finally {
-        setIsSubmitting(false);
-      }
+    if (response.ok && data.success) {
+      setRefNumber(data.refNumber);
+      setIsSuccess(true);
+    } else {
+      setErrors({
+        submit: data.message || "Failed to submit consultation request.",
+      });
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setErrors({
+      submit: "Could not connect to the backend server.",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const toggleStyle = (style) => {
     setFormData(prev => ({
