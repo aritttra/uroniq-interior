@@ -244,7 +244,7 @@ app.post('/api/consultation', async (req, res) => {
           </div>
         </div>
         <div class="footer">
-          This is an automated notification of a lead captured on the Nüvo website.
+          This is an automated notification of a lead captured on the Uroniq Interiors website.
         </div>
       </div>
     </body>
@@ -344,7 +344,7 @@ app.post('/api/consultation', async (req, res) => {
     <body>
       <div class="container">
         <div class="header">
-          <h1>Nüvo Design Studio</h1>
+          <h1>Uroniq Interiors</h1>
         </div>
         <div class="content">
           <h2>Thank you for reaching out, ${name}.</h2>
@@ -374,7 +374,7 @@ app.post('/api/consultation', async (req, res) => {
           </p>
         </div>
         <div class="footer">
-          Nüvo Interiors © 2026. All rights reserved.<br>
+          Uroniq Interiors © 2026. All rights reserved.<br>
           This is an automated confirmation of your request.
         </div>
       </div>
@@ -390,16 +390,16 @@ app.post('/api/consultation', async (req, res) => {
       
       await Promise.all([
         resend.emails.send({
-          from: 'Nüvo Interiors <onboarding@resend.dev>',
+          from: 'Uroniq Interiors <onboarding@resend.dev>',
           to: recipient,
           subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
           html: emailHtml,
           reply_to: email
         }),
         resend.emails.send({
-          from: 'Nüvo Interiors <onboarding@resend.dev>',
+          from: 'Uroniq Interiors <onboarding@resend.dev>',
           to: email,
-          subject: `Thank you for reaching out to Nüvo - Ref: ${refNumber}`,
+          subject: `Thank you for reaching out to Uroniq Interiors - Ref: ${refNumber}`,
           html: clientEmailHtml
         })
       ]);
@@ -417,7 +417,7 @@ app.post('/api/consultation', async (req, res) => {
 
   // Fallback to Nodemailer SMTP
   const adminMailOptions = {
-    from: `"Nüvo Interiors" <${process.env.SMTP_USER}>`,
+    from: `"Uroniq Interiors" <${process.env.SMTP_USER}>`,
     to: process.env.RECEIVER_EMAIL || 'aritrakundu.in@gmail.com',
     subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
     html: emailHtml,
@@ -425,9 +425,9 @@ app.post('/api/consultation', async (req, res) => {
   };
 
   const clientMailOptions = {
-    from: `"Nüvo Interiors" <${process.env.SMTP_USER}>`,
+    from: `"Uroniq Interiors" <${process.env.SMTP_USER}>`,
     to: email,
-    subject: `Thank you for reaching out to Nüvo - Ref: ${refNumber}`,
+    subject: `Thank you for reaching out to Uroniq Interiors - Ref: ${refNumber}`,
     html: clientEmailHtml
   };
 
