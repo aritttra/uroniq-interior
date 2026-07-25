@@ -386,11 +386,11 @@ app.post('/api/consultation', async (req, res) => {
   if (process.env.RESEND_API_KEY) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
-      const recipient = process.env.RECEIVER_EMAIL ? [process.env.RECEIVER_EMAIL, 'uroniqinteriors@gmail.com'] : ['uroniqinteriors@gmail.com'];
+      const receiverEmail = process.env.RECEIVER_EMAIL || 'uroniqinteriors@gmail.com';
       
       const adminRes = await resend.emails.send({
         from: 'Uroniq Interiors <onboarding@resend.dev>',
-        to: recipient,
+        to: receiverEmail,
         subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
         html: emailHtml,
         reply_to: email
