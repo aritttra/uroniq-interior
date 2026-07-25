@@ -459,6 +459,10 @@ app.post('/api/consultation', async (req, res) => {
 });
 
 // Start listening
-app.listen(PORT, () => {
-  console.log(`[SERVER] Nüvo backend listening on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`[SERVER] Nüvo backend listening on port ${PORT}`);
+  });
+}
+
+export default app;
