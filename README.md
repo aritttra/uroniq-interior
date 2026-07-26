@@ -6,6 +6,7 @@
   **A modern, luxurious web application for a premium interior design firm.**
 
   [![Live Demo](https://img.shields.io/badge/Live-Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://uroniq-interior.vercel.app/)
+  <br>
 
   <p>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
