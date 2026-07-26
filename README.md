@@ -5,7 +5,7 @@
 
   **A modern, luxurious web application for a premium interior design firm.**
 
-  [View Live Demo](#) <!-- Update when deployed -->
+  [![Live Demo](https://img.shields.io/badge/Live-Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://uroniq-interior.vercel.app/)
 
   <p>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
@@ -19,22 +19,6 @@
 ## ✧ Overview
 
 Uroniq Interiors is a fully responsive, full-stack web application designed to showcase premium interior design portfolios and capture high-quality client leads. It features a dark, luxurious aesthetic with glassmorphism UI elements, smooth scroll animations, and a seamless consultation booking flow.
-
-## 📸 Screenshots
-
-<p align="center">
-  <img src="frontend/public/hero.png" alt="Hero Section" width="800" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);" />
-</p>
-
-### Portfolios & Services
-<p align="center">
-  <img src="frontend/public/residential.png" alt="Residential Design" width="48%" style="border-radius: 8px;" />
-  <img src="frontend/public/commercial.png" alt="Commercial Space" width="48%" style="border-radius: 8px;" />
-</p>
-
-<p align="center">
-  <img src="frontend/public/about.png" alt="About Uroniq" width="800" style="border-radius: 8px;" />
-</p>
 
 ## ✨ Key Features
 
