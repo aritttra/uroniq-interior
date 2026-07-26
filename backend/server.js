@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import nodemailer from 'nodemailer';
+
 import { Resend } from 'resend';
 import dotenv from 'dotenv';
 
@@ -45,66 +45,38 @@ app.post('/api/consultation', async (req, res) => {
   const randomNum = Math.floor(1000 + Math.random() * 9000);
   const refNumber = `INT-${currentYear}-${randomNum}`;
 
+  const emailHtml = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #333;">New Consultation Request</h2>
+      <p><strong>Reference Number:</strong> ${refNumber}</p>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>City:</strong> ${city}</p>
+      <p><strong>Service:</strong> ${service}</p>
+      <p><strong>Property Type:</strong> ${propertyType}</p>
+      <p><strong>Property Size:</strong> ${propertySize}</p>
+      <p><strong>Budget:</strong> ${budget}</p>
+      <p><strong>Timeline:</strong> ${timeline}</p>
+      <p><strong>Styles:</strong> ${styles}</p>
+      <p><strong>Description:</strong> ${description}</p>
+    </div>
+  `;
+
+  const clientEmailHtml = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #333;">Thank you for reaching out, ${name}!</h2>
+      <p>We have received your consultation request for <strong>${service}</strong>.</p>
+      <p>Your reference number is: <strong>${refNumber}</strong></p>
+      <p>Our team at Uroniq Interiors will review your request and get back to you shortly.</p>
+      <br />
+      <p>Best regards,</p>
+      <p>The Uroniq Interiors Team</p>
+    </div>
+  `;
+
   const receiverEmail = process.env.RECEIVER_EMAIL || 'uroniqinteriors@gmail.com';
-  const hasSmtpConfig = process.env.SMTP_USER && process.env.SMTP_PASS;
-
-  // 1. Primary Email Transport: Nodemailer SMTP (Works without domain on Vercel)
-  if (hasSmtpConfig) {
-    try {
-      const port = parseInt(process.env.SMTP_PORT || "465");
-      const isSecure = process.env.SMTP_SECURE !== undefined 
-        ? process.env.SMTP_SECURE === "true" 
-        : port === 465;
-
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "smtp.gmail.com",
-        port: port,
-        secure: isSecure,
-        connectionTimeout: 15000,
-        greetingTimeout: 15000,
-        socketTimeout: 15000,
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-        tls: {
-          rejectUnauthorized: false
-        }
-      });
-
-      const adminMailOptions = {
-        from: `"Uroniq Interiors" <${process.env.SMTP_USER}>`,
-        to: receiverEmail,
-        subject: `New Lead: [${refNumber}] - ${service} by ${name}`,
-        html: emailHtml,
-        replyTo: email
-      };
-
-      const clientMailOptions = {
-        from: `"Uroniq Interiors" <${process.env.SMTP_USER}>`,
-        to: email,
-        subject: `Thank you for reaching out to Uroniq Interiors - Ref: ${refNumber}`,
-        html: clientEmailHtml
-      };
-
-      const [adminInfo, clientInfo] = await Promise.all([
-        transporter.sendMail(adminMailOptions),
-        transporter.sendMail(clientMailOptions)
-      ]);
-
-      console.log(`[SUCCESS] Admin email sent to ${receiverEmail}: ${adminInfo.messageId}, Client email sent to ${email}: ${clientInfo.messageId} for ref ${refNumber}`);
-
-      return res.status(200).json({
-        success: true,
-        refNumber,
-        message: 'Consultation request sent successfully. Confirmation email dispatched to client and notification sent to Uroniq.'
-      });
-    } catch (smtpError) {
-      console.error(`[ERROR] Nodemailer SMTP failed:`, smtpError);
-    }
-  }
-
-  // 2. Secondary Fallback: Resend API
+  // Use Resend API for email delivery
   if (process.env.RESEND_API_KEY) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
