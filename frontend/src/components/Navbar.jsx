@@ -171,7 +171,6 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
             </AnimatePresence>
           </div>
 
-          <a href="#testimonials" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>Testimonials</a>
           <a href="#contact" style={{ fontSize: '0.9rem', transition: 'color 0.3s' }}>Contact</a>
         </nav>
 
@@ -206,7 +205,6 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
           <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
           <a href="#services" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
           <a href="#collections" onClick={() => setIsMobileMenuOpen(false)}>Collections</a>
-          <a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</a>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
           <button className="btn btn-primary" style={{ marginTop: '0.5rem', width: '100%' }} onClick={() => { setIsMobileMenuOpen(false); onOpenModal(); }}>Make a Schedule</button>
         </div>
