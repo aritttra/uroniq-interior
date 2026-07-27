@@ -3,11 +3,9 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import WhyChooseUs from './components/WhyChooseUs';
 import Services from './components/Services';
 import Collections from './components/Collections';
 import Process from './components/Process';
-import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
@@ -38,12 +36,10 @@ function App() {
       <main>
         <Hero onOpenModal={() => setIsModalOpen(true)} />
         <About />
-        <WhyChooseUs />
         <Services onOpenModal={() => setIsModalOpen(true)} />
         <Process />
         <Collections onOpenModal={() => setIsModalOpen(true)} onSelectService={setSelectedService} externalNav={collectionNav} />
 
-        <Testimonials />
         <Contact onOpenModal={() => setIsModalOpen(true)} />
       </main>
       <Footer />

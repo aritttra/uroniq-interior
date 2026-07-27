@@ -20,7 +20,6 @@ const Footer = () => {
               <li><a href="#home" style={{ transition: 'color 0.3s' }} onMouseOver={e=>e.target.style.color='var(--color-gold)'} onMouseOut={e=>e.target.style.color='var(--color-gray-400)'}>Home</a></li>
               <li><a href="#about" style={{ transition: 'color 0.3s' }} onMouseOver={e=>e.target.style.color='var(--color-gold)'} onMouseOut={e=>e.target.style.color='var(--color-gray-400)'}>About</a></li>
               <li><a href="#services" style={{ transition: 'color 0.3s' }} onMouseOver={e=>e.target.style.color='var(--color-gold)'} onMouseOut={e=>e.target.style.color='var(--color-gray-400)'}>Services</a></li>
-              <li><a href="#testimonials" style={{ transition: 'color 0.3s' }} onMouseOver={e=>e.target.style.color='var(--color-gold)'} onMouseOut={e=>e.target.style.color='var(--color-gray-400)'}>Testimonials</a></li>
               <li><a href="#contact" style={{ transition: 'color 0.3s' }} onMouseOver={e=>e.target.style.color='var(--color-gold)'} onMouseOut={e=>e.target.style.color='var(--color-gray-400)'}>Contact</a></li>
             </ul>
           </div>
