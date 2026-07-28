@@ -32,15 +32,16 @@ const Services = ({ onOpenModal }) => {
                 padding: '2.5rem',
                 borderTop: '2px solid transparent',
                 transition: 'all 0.3s ease',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                backgroundColor: '#98623C'
               }}
               onMouseOver={e => {
                 e.currentTarget.style.borderTopColor = 'var(--color-gold)';
-                e.currentTarget.style.backgroundColor = 'rgba(26, 26, 26, 0.8)';
+                e.currentTarget.style.backgroundColor = '#B07E5B';
               }}
               onMouseOut={e => {
                 e.currentTarget.style.borderTopColor = 'transparent';
-                e.currentTarget.style.backgroundColor = 'rgba(26, 26, 26, 0.4)';
+                e.currentTarget.style.backgroundColor = '#98623C';
               }}
             >
               <service.icon size={40} className="text-gold" style={{ marginBottom: '1.5rem' }} />

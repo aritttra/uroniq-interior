@@ -49,14 +49,27 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
     <header style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       transition: 'all 0.3s ease',
-      backgroundColor: scrolled || isMobileMenuOpen ? 'rgba(5, 5, 5, 0.98)' : 'transparent',
+      backgroundColor: scrolled || isMobileMenuOpen ? 'rgba(43, 31, 25, 0.98)' : 'transparent',
       backdropFilter: scrolled ? 'blur(10px)' : 'none',
       borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
       padding: scrolled ? '0.8rem 0' : '1.2rem 0'
     }}>
       <div className="container flex items-center justify-between" style={{ position: 'relative' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <img src="/logo.svg" alt="Uroniq Interiors" style={{ height: '55px', width: 'auto' }} />
+          <div className="navbar-logo-text" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            fontFamily: "'Cinzel Decorative', serif",
+            color: '#D2B48C',
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: '0.12em',
+            fontSize: '1.25rem'
+          }}>
+            <span style={{ fontSize: '1em' }}>URONIQ</span>
+            <span style={{ fontSize: '0.58em', marginTop: '0.2rem', opacity: 0.85, letterSpacing: '0.2em' }}>INTERIORS</span>
+          </div>
         </div>
         
         {/* Desktop Nav */}
@@ -194,7 +207,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
         <div className="mobile-menu-drawer" style={{
-          backgroundColor: 'rgba(10, 10, 10, 0.98)',
+          backgroundColor: 'rgba(43, 31, 25, 0.98)',
           borderBottom: '1px solid var(--color-gray-800)',
           padding: '1.5rem',
           display: 'flex',
@@ -218,11 +231,11 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
           left: 50%;
           transform: translateX(-40%);
           width: 720px;
-          background: rgba(8, 8, 8, 0.98);
+          background: rgba(43, 31, 25, 0.98);
           backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 10px;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.04);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(210, 180, 140, 0.04);
           display: flex;
           overflow: hidden;
           z-index: 1000;
@@ -262,7 +275,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
 
         .navbar-mega-cat-item:hover,
         .navbar-mega-cat-item.active {
-          background: rgba(255, 255, 255, 0.04);
+          background: var(--color-gray-700);
           color: var(--color-white);
         }
 
@@ -296,7 +309,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
 
         .navbar-mega-cat-item.active .navbar-mega-cat-icon,
         .navbar-mega-cat-item:hover .navbar-mega-cat-icon {
-          background: rgba(212, 175, 55, 0.08);
+          background: rgba(210, 180, 140, 0.08);
         }
 
         .navbar-mega-cat-label {
@@ -381,7 +394,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
         }
 
         .navbar-mega-sub-item:hover {
-          background: rgba(255, 255, 255, 0.04);
+          background: var(--color-gray-700);
           color: var(--color-white);
         }
 

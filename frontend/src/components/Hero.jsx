@@ -22,7 +22,7 @@ const Hero = ({ onOpenModal }) => {
       <div style={{
         position: 'absolute',
         top: 0, left: 0, right: 0, bottom: 0,
-        background: 'linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.3) 100%)',
+        background: 'linear-gradient(to right, rgba(43, 31, 25, 0.95) 0%, rgba(43, 31, 25, 0.3) 100%)',
         zIndex: -1
       }}></div>
 

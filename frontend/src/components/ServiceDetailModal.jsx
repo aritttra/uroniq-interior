@@ -32,7 +32,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
     <div 
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        backgroundColor: 'rgba(43, 31, 25, 0.85)',
         backdropFilter: 'blur(12px)',
         zIndex: 1500,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -49,9 +49,9 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
           width: '100%',
           maxWidth: '900px',
           maxHeight: '90vh',
-          backgroundColor: 'rgba(10, 10, 10, 0.95)',
-          border: '1px solid rgba(212, 175, 55, 0.2)',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.05)',
+          backgroundColor: 'rgba(43, 31, 25, 0.95)',
+          border: '1px solid rgba(210, 180, 140, 0.2)',
+          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(210, 180, 140, 0.05)',
           position: 'relative',
           display: 'flex',
           flexDirection: 'row',
@@ -65,7 +65,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
           onClick={onClose} 
           style={{
             position: 'absolute', top: '1.25rem', right: '1.25rem',
-            background: 'rgba(10, 10, 10, 0.6)', border: '1px solid rgba(255, 255, 255, 0.1)', 
+            background: 'rgba(43, 31, 25, 0.6)', border: '1px solid rgba(255, 255, 255, 0.1)', 
             color: 'var(--color-white)', borderRadius: '50%', width: '36px', height: '36px',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             cursor: 'pointer', zIndex: 10, transition: 'all 0.3s'
@@ -83,7 +83,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
         </button>
 
         {/* Left Side: Photo Gallery / Carousel */}
-        <div style={{ flex: '1.2', position: 'relative', backgroundColor: '#050505', minHeight: '400px' }}>
+        <div style={{ flex: '1.2', position: 'relative', backgroundColor: 'var(--color-black)', minHeight: '400px' }}>
           <img 
             src={data.photos[currentPhotoIdx]} 
             alt={`${data.title} portfolio`} 
@@ -102,7 +102,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
                 onClick={handlePrevPhoto} 
                 style={{
                   position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)',
-                  background: 'rgba(10, 10, 10, 0.7)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--color-white)',
+                  background: 'rgba(43, 31, 25, 0.7)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--color-white)',
                   width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
                   cursor: 'pointer', zIndex: 5, transition: 'all 0.3s'
                 }}
@@ -115,7 +115,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
                 onClick={handleNextPhoto} 
                 style={{
                   position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
-                  background: 'rgba(10, 10, 10, 0.7)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--color-white)',
+                  background: 'rgba(43, 31, 25, 0.7)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--color-white)',
                   width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
                   cursor: 'pointer', zIndex: 5, transition: 'all 0.3s'
                 }}
@@ -150,7 +150,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
         </div>
 
         {/* Right Side: Contact-Card Details */}
-        <div style={{ flex: '1', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderLeft: '1px solid rgba(255, 255, 255, 0.05)', backgroundColor: 'rgba(15, 15, 15, 0.95)' }}>
+        <div style={{ flex: '1', padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderLeft: '1px solid rgba(255, 255, 255, 0.05)', backgroundColor: 'rgba(31, 22, 18, 0.95)' }}>
           <div>
             {/* Header / Sub-title */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>

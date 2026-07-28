@@ -279,7 +279,7 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
         }
 
         .collections-cat-card {
-          background: rgba(18, 18, 18, 0.6);
+          background: #98623C;
           border: 1px solid rgba(255, 255, 255, 0.06);
           border-radius: 12px;
           padding: 2rem;
@@ -297,7 +297,7 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
           left: 0;
           right: 0;
           height: 2px;
-          background: var(--cat-color, var(--color-gold));
+          background: var(--color-gold);
           transform: scaleX(0);
           transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           transform-origin: left;
@@ -308,10 +308,10 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
         }
 
         .collections-cat-card:hover {
-          background: rgba(25, 25, 25, 0.9);
+          background: #B07E5B;
           border-color: rgba(255, 255, 255, 0.12);
           transform: translateY(-4px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.03);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(210, 180, 140, 0.03);
         }
 
         .collections-cat-icon-wrap {
@@ -324,14 +324,14 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
           align-items: center;
           justify-content: center;
           margin-bottom: 1.25rem;
-          color: var(--cat-color, var(--color-gold));
+          color: var(--color-gold);
           transition: all 0.3s ease;
         }
 
         .collections-cat-card:hover .collections-cat-icon-wrap {
-          background: rgba(212, 175, 55, 0.08);
-          border-color: var(--cat-color, var(--color-gold));
-          box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+          background: rgba(210, 180, 140, 0.08);
+          border-color: var(--color-gold);
+          box-shadow: 0 0 15px rgba(210, 180, 140, 0.1);
         }
 
         .collections-cat-title {
@@ -371,7 +371,7 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
 
         .collections-cat-arrow {
           font-size: 0.8rem;
-          color: var(--cat-color, var(--color-gold));
+          color: var(--color-gold);
           display: flex;
           align-items: center;
           gap: 0.35rem;
@@ -502,7 +502,7 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
         .collections-sub-card {
           min-width: 300px;
           max-width: 300px;
-          background: rgba(15, 15, 15, 0.8);
+          background: #98623C;
           border: 1px solid rgba(255, 255, 255, 0.06);
           border-radius: 10px;
           overflow: hidden;
@@ -515,6 +515,7 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
         }
 
         .collections-sub-card:hover {
+          background: #B07E5B;
           border-color: rgba(255, 255, 255, 0.15);
           transform: translateY(-4px);
           box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
@@ -600,7 +601,7 @@ const Collections = ({ onOpenModal, onSelectService, externalNav }) => {
           overflow: hidden;
           border-radius: 12px;
           border: 1px solid rgba(255, 255, 255, 0.08);
-          background: rgba(12, 12, 12, 0.9);
+          background: #98623C;
           backdrop-filter: blur(12px);
         }
 

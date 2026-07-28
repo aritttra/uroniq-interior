@@ -112,7 +112,7 @@ const ConsultationModal = ({ onClose }) => {
   const inputStyle = {
     width: '100%',
     padding: '1rem',
-    background: 'rgba(26, 26, 26, 0.6)',
+    background: 'rgba(43, 31, 25, 0.6)',
     border: '1px solid var(--color-gray-800)',
     color: 'white',
     outline: 'none',
@@ -124,7 +124,7 @@ const ConsultationModal = ({ onClose }) => {
   const selectCardStyle = (isSelected) => ({
     padding: '1.5rem',
     border: `1px solid ${isSelected ? 'var(--color-gold)' : 'var(--color-gray-800)'}`,
-    background: isSelected ? 'rgba(212, 175, 55, 0.1)' : 'rgba(26, 26, 26, 0.6)',
+    background: isSelected ? 'rgba(210, 180, 140, 0.15)' : 'rgba(43, 31, 25, 0.6)',
     cursor: 'pointer',
     transition: 'all 0.3s',
     textAlign: 'center',
@@ -260,7 +260,7 @@ const ConsultationModal = ({ onClose }) => {
   return (
     <div className="modal-container" style={{
       position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.85)',
+      backgroundColor: 'rgba(43, 31, 25, 0.85)',
       backdropFilter: 'blur(8px)',
       zIndex: 1000,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -274,7 +274,7 @@ const ConsultationModal = ({ onClose }) => {
         className="modal-card-content"
         style={{
           width: '100%', maxWidth: '800px', maxHeight: '90vh',
-          backgroundColor: 'rgba(17, 17, 17, 0.95)',
+          backgroundColor: '#1F1612',
           border: '1px solid var(--color-gray-800)',
           position: 'relative',
           display: 'flex', flexDirection: 'column',
@@ -300,7 +300,7 @@ const ConsultationModal = ({ onClose }) => {
               We've received your project requirements. Our design team will review your submission and contact you shortly.
             </p>
             <div style={{
-              backgroundColor: 'rgba(212, 175, 55, 0.05)',
+              backgroundColor: 'rgba(210, 180, 140, 0.05)',
               border: '1px dashed var(--color-gold)',
               padding: '1rem',
               borderRadius: '4px',

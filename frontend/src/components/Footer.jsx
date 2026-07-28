@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: '#000', paddingTop: '4rem', paddingBottom: '2rem', borderTop: '1px solid var(--color-gray-800)' }}>
+    <footer style={{ backgroundColor: 'var(--color-black)', paddingTop: '4rem', paddingBottom: '2rem', borderTop: '1px solid var(--color-gray-800)' }}>
       <div className="container">
         <div className="grid grid-cols-4 gap-8" style={{ marginBottom: '4rem' }}>
           <div style={{ gridColumn: 'span 2' }}>
@@ -29,7 +29,13 @@ const Footer = () => {
             <p style={{ color: 'var(--color-gray-400)', marginBottom: '1rem', fontSize: '0.9rem' }}>Subscribe to get the latest updates.</p>
             <div style={{ display: 'flex' }}>
               <input type="email" placeholder="Your email address" style={{ padding: '0.8rem', background: 'var(--color-gray-900)', border: '1px solid var(--color-gray-800)', color: 'white', flex: 1, outline: 'none' }} />
-              <button style={{ backgroundColor: 'var(--color-gold)', border: 'none', padding: '0 1rem', cursor: 'pointer', fontWeight: 600 }}>OK</button>
+              <button 
+                style={{ backgroundColor: 'var(--color-gold)', color: 'var(--color-black)', border: 'none', padding: '0 1.5rem', cursor: 'pointer', fontWeight: 600, transition: 'all 0.3s' }}
+                onMouseOver={e => { e.currentTarget.style.backgroundColor = 'var(--color-gold-dark)'; }}
+                onMouseOut={e => { e.currentTarget.style.backgroundColor = 'var(--color-gold)'; }}
+              >
+                OK
+              </button>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ export const serviceCategories = [
     title: 'Turnkey Interior Solutions',
     icon: Home,
     description: 'Complete interior solutions—from concept design and planning to execution, installation, and final handover—ensuring a seamless experience.',
-    color: '#d4af37',
+    color: '#D2B48C',
     subcategories: [
       { name: 'Luxury Apartments', img: img(0), description: 'Opulent apartment interiors designed with premium materials, bespoke furniture, and sophisticated lighting to create an extraordinary living experience.' },
       { name: 'Villas & Independent Houses', img: img(1), description: 'Grand villa interiors that blend architectural elegance with personalized luxury, featuring expansive layouts and curated design elements.' },
@@ -33,7 +33,7 @@ export const serviceCategories = [
     title: 'Commercial Interiors',
     icon: Building2,
     description: 'Functional and elegant commercial spaces that enhance productivity and reinforce brand identity.',
-    color: '#4a90d9',
+    color: '#4A3428',
     subcategories: [
       { name: 'Corporate Offices', img: img(2), description: 'Professional corporate environments with ergonomic workstations, collaborative zones, and executive suites that reflect your brand values.' },
       { name: 'Startup Offices', img: img(9), description: 'Dynamic, creative workspaces designed for agility and growth—open layouts, breakout zones, and vibrant energy throughout.' },
@@ -53,7 +53,7 @@ export const serviceCategories = [
     title: 'Hospitality Interiors',
     icon: Hotel,
     description: 'Complete interior solutions for hospitality businesses that create memorable guest experiences.',
-    color: '#e8734a',
+    color: '#D2B48C',
     subcategories: [
       { name: 'Hotels', img: img(6), description: 'Full-service hotel interior design from lobby to suites—creating cohesive brand experiences that delight guests at every touchpoint.' },
       { name: 'Resorts', img: img(7), description: 'Destination-worthy resort interiors that harmonize with natural surroundings while delivering five-star luxury and comfort.' },
@@ -68,7 +68,7 @@ export const serviceCategories = [
     title: 'Custom Furniture Solutions',
     icon: Armchair,
     description: 'Premium custom furniture designed and manufactured to exact client specifications and style preferences.',
-    color: '#8b6914',
+    color: '#4A3428',
     subcategories: [
       { name: 'Modular Furniture', img: img(3), description: 'Versatile modular systems that adapt to your evolving needs—configurable, space-efficient, and beautifully crafted.' },
       { name: 'Office Furniture', img: img(2), description: 'Ergonomic office furniture including executive desks, conference tables, workstations, and collaborative seating solutions.' },
@@ -83,7 +83,7 @@ export const serviceCategories = [
     title: 'Civil & Renovation Works',
     icon: HardHat,
     description: 'Comprehensive civil works and renovation services for structural modifications and upgrades.',
-    color: '#7c8a6e',
+    color: '#D2B48C',
     subcategories: [
       { name: 'Civil Modifications', img: img(1), description: 'Expert structural modifications including wall removal, room reconfiguration, and load-bearing alterations with engineering precision.' },
       { name: 'Demolition & Remodeling', img: img(3), description: 'Controlled demolition and complete remodeling services—transforming outdated spaces into modern, functional environments.' },
@@ -99,7 +99,7 @@ export const serviceCategories = [
     title: 'Electrical & Smart Solutions',
     icon: Zap,
     description: 'Modern electrical planning and smart home automation solutions for intelligent living.',
-    color: '#f0c040',
+    color: '#4A3428',
     subcategories: [
       { name: 'Electrical Planning & Execution', img: img(2), description: 'Complete electrical infrastructure planning and execution—circuit design, panel installations, and safety-compliant wiring systems.' },
       { name: 'Decorative Lighting', img: img(6), description: 'Curated decorative lighting solutions including chandeliers, pendant lights, cove lighting, and architectural accent fixtures.' },
@@ -113,7 +113,7 @@ export const serviceCategories = [
     title: 'Plumbing & Bathroom Solutions',
     icon: Droplets,
     description: 'Complete plumbing works and luxurious bathroom renovation services with premium fittings.',
-    color: '#5b9bd5',
+    color: '#D2B48C',
     subcategories: [
       { name: 'Complete Plumbing Works', img: img(5), description: 'End-to-end plumbing services including pipeline installation, water supply systems, drainage, and leak-proof solutions.' },
       { name: 'Bathroom Renovation', img: img(5), description: 'Full bathroom renovations with designer layouts, premium tiles, modern fixtures, and spa-inspired design elements.' },
@@ -126,7 +126,7 @@ export const serviceCategories = [
     title: 'Premium Finishing Works',
     icon: Sparkles,
     description: 'Exquisite finishing works that add the final layer of luxury and refinement to any space.',
-    color: '#c77dba',
+    color: '#4A3428',
     subcategories: [
       { name: 'Veneer Finishes', img: img(6), description: 'Natural wood veneer applications that bring warmth and organic beauty—available in teak, walnut, oak, and exotic species.' },
       { name: 'Laminate Finishes', img: img(3), description: 'Durable and versatile laminate finishes in hundreds of textures, colors, and patterns—cost-effective premium aesthetics.' },
@@ -142,7 +142,7 @@ export const serviceCategories = [
     title: 'Design & Visualization',
     icon: PenTool,
     description: 'Visualize your dream space before execution through advanced design and rendering services.',
-    color: '#e06c75',
+    color: '#D2B48C',
     subcategories: [
       { name: 'Space Planning', img: img(9), description: 'Strategic space planning that optimizes flow, functionality, and aesthetics—ensuring every area serves its purpose beautifully.' },
       { name: '2D Layouts', img: img(2), description: 'Detailed 2D floor plans and elevation drawings with precise measurements, furniture placement, and electrical/plumbing layouts.' },

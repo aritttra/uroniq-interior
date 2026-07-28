@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section" style={{ backgroundColor: '#1F1612' }}>
       <div className="container grid grid-cols-2 gap-8 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
