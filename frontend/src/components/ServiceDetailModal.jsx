@@ -29,7 +29,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
   };
 
   return (
-    <div 
+    <div
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
         backgroundColor: 'rgba(43, 31, 25, 0.85)',
@@ -37,7 +37,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
         zIndex: 1500,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '2rem'
-      }} 
+      }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <motion.div
@@ -61,11 +61,11 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
         className="service-card-modal"
       >
         {/* Close Button */}
-        <button 
-          onClick={onClose} 
+        <button
+          onClick={onClose}
           style={{
             position: 'absolute', top: '1.25rem', right: '1.25rem',
-            background: 'rgba(43, 31, 25, 0.6)', border: '1px solid rgba(255, 255, 255, 0.1)', 
+            background: 'rgba(43, 31, 25, 0.6)', border: '1px solid rgba(255, 255, 255, 0.1)',
             color: 'var(--color-white)', borderRadius: '50%', width: '36px', height: '36px',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             cursor: 'pointer', zIndex: 10, transition: 'all 0.3s'
@@ -84,10 +84,10 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
 
         {/* Left Side: Photo Gallery / Carousel */}
         <div style={{ flex: '1.2', position: 'relative', backgroundColor: 'var(--color-black)', minHeight: '400px' }}>
-          <img 
-            src={data.photos[currentPhotoIdx]} 
-            alt={`${data.title} portfolio`} 
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: 0, left: 0 }} 
+          <img
+            src={data.photos[currentPhotoIdx]}
+            alt={`${data.title} portfolio`}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: 0, left: 0 }}
           />
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
@@ -98,8 +98,8 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
           {/* Navigation Arrows for Photos */}
           {data.photos.length > 1 && (
             <>
-              <button 
-                onClick={handlePrevPhoto} 
+              <button
+                onClick={handlePrevPhoto}
                 style={{
                   position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)',
                   background: 'rgba(43, 31, 25, 0.7)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--color-white)',
@@ -111,8 +111,8 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
               >
                 <ChevronLeft size={20} />
               </button>
-              <button 
-                onClick={handleNextPhoto} 
+              <button
+                onClick={handleNextPhoto}
                 style={{
                   position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)',
                   background: 'rgba(43, 31, 25, 0.7)', border: '1px solid rgba(255,255,255,0.08)', color: 'var(--color-white)',
@@ -135,7 +135,7 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
               background: 'rgba(0,0,0,0.5)', padding: '0.4rem 0.8rem', borderRadius: '20px', backdropFilter: 'blur(5px)'
             }}>
               {data.photos.map((_, idx) => (
-                <div 
+                <div
                   key={idx}
                   onClick={(e) => { e.stopPropagation(); setCurrentPhotoIdx(idx); }}
                   style={{
@@ -156,22 +156,22 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
               <span style={{ display: 'inline-block', width: '6px', height: '6px', backgroundColor: 'var(--color-gold)', borderRadius: '50%' }}></span>
               <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.15em', color: 'var(--color-gold)', textTransform: 'uppercase' }}>
-                NÜVO DESIGN SERVICE
+                URONIQ INTERIOR DESIGN SERVICE
               </span>
             </div>
 
             {/* Main Title */}
-            <h3 style={{ 
-              fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--color-white)', 
-              marginBottom: '1.5rem', lineHeight: '1.2', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.75rem' 
+            <h3 style={{
+              fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--color-white)',
+              marginBottom: '1.5rem', lineHeight: '1.2', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.75rem'
             }}>
               {data.title}
             </h3>
 
             {/* Contact Card Details Block */}
-            <div style={{ 
-              display: 'flex', flexDirection: 'column', gap: '0.8rem', 
-              backgroundColor: 'rgba(255,255,255,0.02)', padding: '1.25rem', 
+            <div style={{
+              display: 'flex', flexDirection: 'column', gap: '0.8rem',
+              backgroundColor: 'rgba(255,255,255,0.02)', padding: '1.25rem',
               borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)',
               marginBottom: '1.5rem'
             }}>
@@ -211,8 +211,8 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
           </div>
 
           {/* Action CTA */}
-          <button 
-            className="btn btn-primary" 
+          <button
+            className="btn btn-primary"
             onClick={onOpenConsultation}
             style={{
               width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
@@ -226,7 +226,8 @@ const ServiceDetailModal = ({ category, onClose, onOpenConsultation }) => {
       </motion.div>
 
       {/* Embedded CSS for responsive styles */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           .service-card-modal {
             flex-direction: column !important;
