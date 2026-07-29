@@ -5,6 +5,7 @@ import { serviceCategories } from '../data/servicesData';
 
 const Navbar = ({ onOpenModal, onNavigateCollection }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,6 +14,10 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = totalScroll / windowHeight;
+      setScrollProgress(scroll || 0);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -127,7 +132,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
                           className={`navbar-mega-cat-item ${isHovered ? 'active' : ''}`}
                           onMouseEnter={() => setHoveredCategory(cat)}
                           onClick={() => handleCategoryClick(cat)}
-                          style={{ '--cat-color': cat.color }}
+                          style={{ '--cat-color': '#d2b48c' }}
                         >
                           <div className="navbar-mega-cat-icon">
                             <Icon size={16} strokeWidth={1.5} />
@@ -151,8 +156,8 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
                           transition={{ duration: 0.2 }}
                           className="navbar-mega-subs-inner"
                         >
-                          <div className="navbar-mega-subs-header" style={{ color: hoveredCategory.color }}>
-                            <span className="navbar-mega-subs-dot" style={{ backgroundColor: hoveredCategory.color }} />
+                          <div className="navbar-mega-subs-header" style={{ color: '#d2b48c' }}>
+                            <span className="navbar-mega-subs-dot" style={{ backgroundColor: '#d2b48c' }} />
                             {hoveredCategory.title}
                           </div>
                           <div className="navbar-mega-subs-grid">
@@ -161,9 +166,9 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
                                 key={sub.name}
                                 className="navbar-mega-sub-item"
                                 onClick={() => handleSubcategoryClick(hoveredCategory, sub)}
-                                style={{ '--cat-color': hoveredCategory.color }}
+                                style={{ '--cat-color': '#d2b48c' }}
                               >
-                                <span className="navbar-mega-sub-bullet" style={{ backgroundColor: hoveredCategory.color }} />
+                                <span className="navbar-mega-sub-bullet" style={{ backgroundColor: '#d2b48c' }} />
                                 <span>{sub.name}</span>
                               </button>
                             ))}
@@ -171,7 +176,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
                           <button
                             className="navbar-mega-view-all"
                             onClick={() => handleCategoryClick(hoveredCategory)}
-                            style={{ color: hoveredCategory.color }}
+                            style={{ color: '#d2b48c' }}
                           >
                             View all {hoveredCategory.title} →
                           </button>
@@ -223,13 +228,25 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
         </div>
       )}
 
+      {/* Scroll Progress Bar */}
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        height: '3px',
+        backgroundColor: '#d2b48c',
+        width: `${scrollProgress * 100}%`,
+        transition: 'width 0.1s ease-out',
+        zIndex: 101
+      }} />
+
       {/* Mega Dropdown Styles */}
       <style dangerouslySetInnerHTML={{ __html: `
         .navbar-mega-dropdown {
           position: absolute;
           top: calc(100% + 0.5rem);
-          left: 50%;
-          transform: translateX(-40%);
+          left: -40px;
+          right: auto;
           width: 720px;
           background: rgba(43, 31, 25, 0.98);
           backdrop-filter: blur(20px);
@@ -277,6 +294,7 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
         .navbar-mega-cat-item.active {
           background: var(--color-gray-700);
           color: var(--color-white);
+          transform: translateX(4px);
         }
 
         .navbar-mega-cat-item.active {
@@ -433,7 +451,8 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
         @media (max-width: 1024px) {
           .navbar-mega-dropdown {
             width: 500px;
-            transform: translateX(-60%);
+            left: -20px;
+            right: auto;
           }
           .navbar-mega-cats {
             width: 200px;
@@ -452,8 +471,8 @@ const Navbar = ({ onOpenModal, onNavigateCollection }) => {
           }
           .navbar-mega-dropdown {
             width: calc(100vw - 2rem);
+            right: auto;
             left: 0;
-            transform: translateX(-40%);
             flex-direction: column;
           }
           .navbar-mega-cats {

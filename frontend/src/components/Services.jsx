@@ -31,6 +31,7 @@ const Services = ({ onOpenModal }) => {
               style={{
                 padding: '2.5rem',
                 borderTop: '2px solid transparent',
+                borderRadius: '1rem',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
                 backgroundColor: '#98623C'
